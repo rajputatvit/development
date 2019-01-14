@@ -3,29 +3,29 @@
 
 using namespace std;
 
-int main()
+char FindFirstNonRepeatedChar(char* str)
 {
-	string str = "abacaabb";
+	char count[256] = { 0 };
 
-	int n = str.length();
-	int len = 0;
+	int len = strlen(str);
 
-	for (int i = 0; i < n -1; ++i)
+	for (int i = 0; i < len; ++i)
 	{
-		for (int j = 1; j < n; ++j)
-		{
-			if (str[0] == str[j])
-			{
-				str[0] = str[n - 1];
-				str[n - 1] = ' ';
-				n--;
-				//break;
-			}
-		}
+		count[str[i]]++;		
 	}
 
-	cout << "n: " << n << endl;
-	cout << "str: " << str << endl;
+	for (int i = 0; i < len; ++i)
+	{
+		if (count[str[i]] == 1)
+			return str[i];
+	}
+}
+
+int main()
+{
+	char* str = "abzddab";
+
+	cout << FindFirstNonRepeatedChar(str);
 
 	return 0;
 }
