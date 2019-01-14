@@ -14,3 +14,7 @@
 *.idb
 *.obj
 *.tlog
+x64/
+Win32/
+Debug/
+Release/
