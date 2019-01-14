@@ -1,0 +1,16 @@
+*.dll
+*.lib
+*.pyc
+*.opensdf
+*.sdf
+*.v12.suo
+*.dat
+*.pdb
+*.ilk
+*.sys
+*.exp
+*.user
+*.log
+*.idb
+*.obj
+*.tlog
