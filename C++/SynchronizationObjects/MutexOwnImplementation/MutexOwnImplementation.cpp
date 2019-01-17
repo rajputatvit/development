@@ -43,7 +43,10 @@ public:
 	void unlock()
 	{
 		if (m_thread_id == GetCurrentThreadId())	// Only owning thread can unlock it
+		{
+			m_thread_id = 0;
 			m_bmutex = false;
+		}
 	}
 };
 
@@ -67,17 +70,21 @@ bool isPrime(int n)
 
 unsigned int __stdcall test(void*)
 {
-	while (j < 25)
+	while (j < 100)
 	{
 		mtx1.lock();
-		int num = j++;
-		char* ch = "NO";
+		int num = ++j;
+		
 
+		char* ch = "NO";
+		//Sleep(100);
 		if (isPrime(num))
 			ch = "Yes";
 
+		
 		cout << "Thread: " << GetCurrentThreadId() << " Num: " << num << "  " << ch << endl;
 		mtx1.unlock();
+		Sleep(500);
 	}
 
 	return 0;
@@ -92,7 +99,7 @@ int main()
 	hT1[0] = (HANDLE)_beginthreadex(NULL, 0, test, NULL, 0, NULL);
 	hT1[1] = (HANDLE)_beginthreadex(NULL, 0, test, NULL, 0, NULL);
 	hT1[2] = (HANDLE)_beginthreadex(NULL, 0, test, NULL, 0, NULL);
-	WaitForMultipleObjects(3, hT1, TRUE, 1000);
+	WaitForMultipleObjects(3, hT1, TRUE, INFINITE);
 	
 	CloseHandle(hT1[0]);
 	CloseHandle(hT1[1]);

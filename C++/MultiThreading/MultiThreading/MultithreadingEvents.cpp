@@ -26,9 +26,9 @@ unsigned int __stdcall test(void*)
 	
 
 	
-	while (j < 25)
+	while (j < 100)
 	{
-		WaitForSingleObject(hE1, 1000);
+		WaitForSingleObject(hE1, INFINITE);
 		int num = j++;
 		char* ch = "NO";
 
@@ -37,6 +37,7 @@ unsigned int __stdcall test(void*)
 
 		cout << "Thread: " << GetCurrentThreadId() << " Num: " << num << "  " << ch << endl;
 		ReleaseMutex(hE1);
+
 	}
 
 	return 0;
