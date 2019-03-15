@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FindWhetherraySubsetAnotheArray.cpp" />
     <ClCompile Include="fun_Anagram.cpp" />
     <ClCompile Include="hash_map_main.cpp" />
   </ItemGroup>

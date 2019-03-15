@@ -21,6 +21,9 @@
     <ClCompile Include="fun_Anagram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FindWhetherraySubsetAnotheArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mapHeader.h">

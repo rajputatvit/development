@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map", "map\map.vcxproj", "{5ADFCBDC-5EE5-4B01-9537-EAE530F01C64}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tree_BinaryTree_BST_AVL_RedBlackTree", "Tree_BinaryTree_BST_AVL_RedBlackTree\Tree_BinaryTree_BST_AVL_RedBlackTree.vcxproj", "{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -121,6 +123,16 @@ Global
 		{5ADFCBDC-5EE5-4B01-9537-EAE530F01C64}.Release|Win32.ActiveCfg = Release|Win32
 		{5ADFCBDC-5EE5-4B01-9537-EAE530F01C64}.Release|Win32.Build.0 = Release|Win32
 		{5ADFCBDC-5EE5-4B01-9537-EAE530F01C64}.Release|x64.ActiveCfg = Release|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Debug|Win32.Build.0 = Debug|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Debug|x64.ActiveCfg = Debug|x64
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Release|Win32.ActiveCfg = Release|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Release|Win32.Build.0 = Release|Win32
+		{1AE24D19-EFBE-4442-A67B-5EB53CAB9917}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
