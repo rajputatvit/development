@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design_pattern", "design_pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_design_pattern", "observer_design_pattern\observer_design_pattern.vcxproj", "{5C71276A-5238-4C18-A524-EF7DDA314B07}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "adapter_design_pattern", "adapter_design_pattern\adapter_design_pattern.vcxproj", "{FDD416CE-484A-40CF-A198-90445FA5996F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -171,6 +173,16 @@ Global
 		{5C71276A-5238-4C18-A524-EF7DDA314B07}.Release|Win32.ActiveCfg = Release|Win32
 		{5C71276A-5238-4C18-A524-EF7DDA314B07}.Release|Win32.Build.0 = Release|Win32
 		{5C71276A-5238-4C18-A524-EF7DDA314B07}.Release|x64.ActiveCfg = Release|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Debug|Win32.Build.0 = Debug|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Debug|x64.ActiveCfg = Debug|x64
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Release|Win32.ActiveCfg = Release|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Release|Win32.Build.0 = Release|Win32
+		{FDD416CE-484A-40CF-A198-90445FA5996F}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,5 +192,6 @@ Global
 		{AE69DCAF-BAFF-4C00-BD87-C0EFB5359593} = {EDB81B4A-7FDE-4EE6-A6BD-2A86ECC8F24B}
 		{4C5D682A-0E45-4C64-ADC1-3E61E73B522C} = {EDB81B4A-7FDE-4EE6-A6BD-2A86ECC8F24B}
 		{5C71276A-5238-4C18-A524-EF7DDA314B07} = {85804DD9-CA3F-4E35-98BE-CECC95855273}
+		{FDD416CE-484A-40CF-A198-90445FA5996F} = {85804DD9-CA3F-4E35-98BE-CECC95855273}
 	EndGlobalSection
 EndGlobal
