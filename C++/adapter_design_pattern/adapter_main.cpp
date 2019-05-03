@@ -44,19 +44,10 @@ typedef int dimension;
 
 class adapter_rectangle : public rectangle, private legacy_rectangle
 {
-	int _x;
-	int _y;
-	int _height;
-	int _width;
 public:
 	adapter_rectangle(cordinate x, cordinate y, dimension w, dimension h) :legacy_rectangle(x, y, x + w, y + h)
 	{
-		_x = x;
-		_y = y;
-		_height = h;
-		_width = w;
-
-		cout << "Create adapter rectangle with: " << "(" << _x << ", " << _y << ") Width: " << _width << " " << "height: " << _height << ")" << endl;
+		cout << "Create adapter rectangle with: " << "(" << x << ", " << y << ") Width: " << w << " " << "height: " << h << ")" << endl;
 	}
 
 	void draw()
