@@ -1,49 +1,106 @@
-/******************************************************************************
-
-Online C++ Compiler.
-Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
-#include <iostream>
-#include <string.h>
-#include <math.h>
+// C++ program to find the length of largest subarray 
+// with 0 sum 
+#include <iostream> 
+#include <unordered_map>
+#include <algorithm>
+#include "..\x64\Debug\read_input_from_file.h"
 using namespace std;
+
+
+int get_max_sum_of_subarray(vector<int>& vect)
+{
+	int sum_1st_postive_subgroup = 0;
+	int smallest = -9999;
+	int n = vect.size();
+	//cout << "n: " << n;
+	//cout << "debug1";
+
+	for (int i = 0; i < n; ++i)
+	{
+		//cout << "debug1_1";
+		while (i < n && vect[i] >= 0)
+		{
+			sum_1st_postive_subgroup += vect[i];
+			++i;
+		}
+
+		if (i >= n)
+			return sum_1st_postive_subgroup;
+
+		// cout << sum_1st_postive_subgroup << endl;
+
+		int sum_negtive_subgroup = 0;
+		while (i < n && vect[i] < 0)
+		{
+			sum_negtive_subgroup += vect[i];
+
+			if (vect[i] > smallest)
+				smallest = vect[i];
+			++i;
+		}
+
+		if (i >= n)
+		{
+			if (sum_1st_postive_subgroup == 0)
+				return smallest;
+			else
+				return sum_1st_postive_subgroup;
+		}
+
+		//cout << sum_negtive_subgroup << endl;
+
+		int sum_2nd_postive_subgroup = 0;
+		while (i < n && vect[i] >= 0)
+		{
+			sum_2nd_postive_subgroup += vect[i];
+			++i;
+		}
+
+		// cout << sum_2nd_postive_subgroup << endl;
+
+		if ((sum_2nd_postive_subgroup + sum_negtive_subgroup) + sum_1st_postive_subgroup >= sum_2nd_postive_subgroup)
+			sum_1st_postive_subgroup = sum_negtive_subgroup + sum_1st_postive_subgroup + sum_2nd_postive_subgroup;
+		else if (sum_2nd_postive_subgroup >= sum_1st_postive_subgroup)
+			sum_1st_postive_subgroup = sum_2nd_postive_subgroup;
+
+
+		//cout << "value: "<< i << " sum: "<<sum_1st_postive_subgroup << endl;
+
+	}
+
+	//cout << "debug5";
+	return sum_1st_postive_subgroup;
+}
 
 int main()
 {
-	//cout<<"Hello World";
+	// No of test cases
+	int no_testcases = 0;
+	cin >> no_testcases;
 
-	int arr[256] = { 0 };
-
-	char s1[] = "happy";
-	char s2[] = "ypapm";
-
-	int len = strlen(s1);// > strlen(2) ? strlen(s1) : strlen(s2);
-	
-	for (int i = 0; i<len; ++i)
+	for (int indx_testcases = 0; indx_testcases < no_testcases; ++indx_testcases)
 	{
-		//if (s1[])
-		arr[s1[i]]++;
-		arr[s2[i]]--;
+		// Input size of each test case
+		int input_size_testcase = 0;
+		cin >> input_size_testcase;
+
+		// Input array
+		char*path = "C:\\Users\\37050\\Desktop\\input.txt";
+		vector<int>& vect = get_array_from_file(path);
+		////vect.reserve(input_size_testcase);
+
+		//for (int indx_vect = 0; indx_vect < input_size_testcase; ++indx_vect)
+		//{
+		//	int input_array_value;
+		//	cin >> input_array_value;
+		//	vect[indx_vect] = input_array_value;
+		//	//vect.push_back(input_array_value);
+		//}
+		//cout <<"n: " << vect.size();
+		// process input array
+		cout << get_max_sum_of_subarray(vect) << endl;
+
 	}
-
-	bool flag = 0;
-
-	for (int i = 0; i<256; ++i)
-	{
-		if (arr[i] != 0)
-		{
-			flag = 1;
-			break;
-		}
-	}
-
-	if (flag == 1)
-		cout << "Not equal" << endl;
-	else
-		cout << "equal" << endl;
 
 	return 0;
 }
