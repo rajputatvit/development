@@ -1,0 +1,71 @@
+
+RabbitMQ Shovel Plugin - POC
+Skip to end of metadata
+Created by Rajput, Jitendra, last modified about an hour ago
+Go to start of metadata
+Shovel Plugin: https://www.rabbitmq.com/shovel.html
+
+Steps to enable & create shovel in localhost:
+Create two RabbitMQ Brokers (Running multiple RabbitMQ instances/servers on 1 machine - Step By Step Tutorial). Let say Broker2 & Broker3.
+Enable shovel plugin: rabbitmq-plugins enable rabbitmq_shovel in Broker2.
+Use Dynamic Shovel instead Static Shovel, it have many advantages over static Shovel.
+Configuring Dynamic Shovels using following methods but I used UI:
+Using CLI Tools: rabbitmqctl
+Using HTTP API
+Using Management UI
+In Broker2 (DC1) as Source:
+Username: guest & Password: guest 
+Start Broker2 will have 3 different ports:
+
+amqp	::	5673
+clustering	::	25673
+http	::	15673
+Create vhost, let say vhostbroker2 is created and set policies for this vhost using UI.
+Create Exchange let say shovel_exchange_broker2
+Create queue shovel_queue
+Bind shovel_queue with shovel_exchange_broker2 using routing key: rtp
+In Broker3 (DC2) as Destination:
+Username: guest & Password: guest  
+Start Broker3 which will have 3 different ports:
+
+amqp	::	5674
+clustering	::	25674
+http	::	15674
+Create vhost, let say vhostbroker3 is created and set policies for this vhost using UI.
+Create 2 Queues which are accounting & transaction.
+Create Exchange shovel_exchange_broker3
+Bind accounting queue with shovel_exchange_broker3 using routing key:  acc
+Bind transaction queue with shovel_exchange_broker3 using routing key: txn
+Using Management UI
+Enable Management UI: rabbitmq-plugins enable rabbitmq_shovel_management in Broker2.
+Start Broker2 and go to localhost:PORT (Port: http port for RabbitMQ broker2)
+Navigate to Admin > Shovel Management > Add a new shovel
+Fill out the form with shovel parameters covered earlier in this guide:
+src queue: shovel_queue
+src uri: amqp://guest:guest@localhost:5673/vhostbroker2. (url format: amqp://username:password@servername:port/vhost)
+dest exchange: shovel_exchange_broker3 (Don't use routing key, leave it blank so in destination original key will be received)
+dest uri: amqp://guest:guest@localhost:5674/vhostbroker3
+Click Add shovel
+Features:
+Loose coupling
+WAN friendly (are used to ensure data safety in case of connection and node failures)
+Flexibility (Shovel can run on the same broker (or cluster) as its source or destination, although that's the most typical approach; the shovel can run on an entirely separate node or cluster)
+Perfomance: 
+This can trade off based on how we want to receive acknowledgement (https://www.rabbitmq.com/shovel-dynamic.html ack-mode):
+Determines how the shovel should acknowledge consumed messages. If set to on-confirm (the default), messages are acknowledged to the source broker after they have been confirmed by the destination. This handles network errors and broker failures without losing messages, and is the slowest option.
+
+
+
+If set to on-publish, messages are acknowledged to the source broker after they have been published at the destination. This handles network errors without losing messages, but may lose messages in the event of broker failures.
+
+If set to no-ack, message acknowledgements are not used. This is the fastest option, but may lose messages in the event of network or broker failures.
+
+If ACK is sent after sending bulk message then performance will high but chances of data loss may happen.
+If ACK is sent after each message then performance will low but chances of data loss is minimal.
+Shovel restarted/Source Node/Destination Node/Shove Hosted Node failure:
+Shovel is resilient, in case of restart it will process message.
+A shovel can be provided a list of both source and destination endpoints. In this case the shovel will connect to the first reachable endpoint.
+Dynamic shovels are automatically defined on all nodes of the hosting cluster on which the shovel plugin is enabled. Each shovel will only start on one arbitrarily chosen node, but will be restarted on another node in case of node failure.
+Example: local host shovel:
+
+
