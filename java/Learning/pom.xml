@@ -24,6 +24,16 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.iban4j</groupId>
+      <artifactId>iban4j</artifactId>
+      <version>3.2.1</version>
+    </dependency>
   </dependencies>
 
   <build>

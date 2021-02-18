@@ -1,0 +1,19 @@
+
+# Default ignored files
+.DS_Store
+*.swp
+.java-version
+.scannerwork/
+report/
+.idea/
+.factorypath
+.springBeans
+.classpath
+.project
+test-output/
+**/.idea/
+**/.settings/
+**/*.iml
+target/
+bin/
+r2p-participant-svc/target/
